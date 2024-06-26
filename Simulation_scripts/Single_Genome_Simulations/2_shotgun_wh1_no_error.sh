@@ -22,7 +22,7 @@ do
 for z in {1..5}
 do
 echo "i: $i, x: $x, y: $y, z: $z"
-randomreads.sh ref=./genomes/Wuhan-Hu-1_SARS-COV-2.fasta out1=./sim_reads/Wuhan_PE$x\_$y\X_$z\_R1.fq out2=./sim_reads/Wuhan_PE$x\_$y\X_$z\_R2.fq seed=-1 q=40 adderrors=f snprate=0 insrate=0 delrate=0 subrate=0 nrate=0 paired=t len=$x coverage=$y
+randomreads.sh ref=./genomes/Wuhan-Hu-1_SARS-COV-2.fasta out1=./sim_reads/Wh1_PE$x\_$y\X_$z\_R1.fq out2=./sim_reads/Wh1_PE$x\_$y\X_$z\_R2.fq seed=-1 q=40 adderrors=f snprate=0 insrate=0 delrate=0 subrate=0 nrate=0 paired=t len=$x coverage=$y
 done
 done
 done

@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=bbmap_sim_wh1_error_reps
+#SBATCH --job-name=bbmap_sim_wh1_no_error_reps
 #SBATCH --partition=glenn_p
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=12
@@ -22,7 +22,7 @@ do
 for z in {1..5}
 do
 echo "i: $i, x: $x, y: $y, z: $z"
-randomreads.sh ref=./genomes/Wuhan-Hu-1_SARS-COV-2.fasta out1=./sim_reads/Wh1_PE$x\_$y\X_IE_$z\_R1.fq out2=./sim_reads/Wh1_PE$x\_$y\X_IE_$z\_R2.fq seed=-1 maxq=36 midq=28 minq=20 adderrors=t qv=4 paired=t len=$x coverage=$y
+randomreads.sh ref=./genomes/Delta_gisaid_hcov-19_GA_2021_06_30_14.fasta out1=./sim_reads/Delta_PE$x\_$y\X_$z\_R1.fq out2=./sim_reads/Delta_PE$x\_$y\X_$z\_R2.fq seed=-1 q=40 adderrors=f snprate=0 insrate=0 delrate=0 subrate=0 nrate=0 paired=t len=$x coverage=$y
 done
 done
 done
