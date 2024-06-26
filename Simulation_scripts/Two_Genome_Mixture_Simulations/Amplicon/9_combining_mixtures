@@ -1,0 +1,52 @@
+#!/bin/bash
+#SBATCH --job-name=Combining_Detla-Wh1
+#SBATCH --partition=batch
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --mem=1gb
+#SBATCH --export=NONE
+#SBATCH --time=24:00:00
+#SBATCH --output=%x_%j.out
+#SBATCH --error=%x_%j.err
+#SBATCH --mail-user=email@uga.edu
+#SBATCH --mail-type=BEGIN,END,FAIL
+
+#Set directory
+cd /scratch/mandyh/WISER_InSilico/Mixtures
+
+#define directory
+input1='/scratch/mandyh/WISER_InSilico/Mixtures/final_sim_delta_amp_reads'
+input2='/scratch/mandyh/WISER_InSilico/Mixtures/final_sim_Wh1_amp_reads'
+output='/scratch/mandyh/WISER_InSilico/Mixtures/final_sim_mix_amp_reads'
+
+for i in {3,4}
+do
+for z in {1..5}
+do
+echo "i: $i, z: $z"
+cat $input1/Delta_V$i\_PE250_1X_$z\-reads.fastq $input2/Wh1_V$i\_PE250_99X_$z\-reads.fastq > $output/D1W99_V$i\_PE250_$z\-reads.fastq
+cat $input1/Delta_V$i\_PE250_10X_$z\-reads.fastq $input2/Wh1_V$i\_PE250_90X_$z\-reads.fastq > $output/D10W90_V$i\_PE250_$z\-reads.fastq
+cat $input1/Delta_V$i\_PE250_50X_$z\-reads.fastq $input2/Wh1_V$i\_PE250_50X_$z\-reads.fastq > $output/D50W50_V$i\_PE250_$z\-reads.fastq
+cat $input1/Delta_V$i\_PE250_99X_$z\-reads.fastq $input2/Wh1_V$i\_PE250_1X_$z\-reads.fastq > $output/D99W1_V$i\_PE250_$z\-reads.fastq
+cat $input1/Delta_V$i\_PE250_90X_$z\-reads.fastq $input2/Wh1_V$i\_PE250_10X_$z\-reads.fastq > $output/D90W10_V$i\_PE250_$z\-reads.fastq
+cat $input1/Delta_V$i\_PE250_80X_$z\-reads.fastq $input2/Wh1_V$i\_PE250_20X_$z\-reads.fastq > $output/D80W20_V$i\_PE250_$z\-reads.fastq
+cat $input1/Delta_V$i\_PE250_70X_$z\-reads.fastq $input2/Wh1_V$i\_PE250_30X_$z\-reads.fastq > $output/D70W30_V$i\_PE250_$z\-reads.fastq
+cat $input1/Delta_V$i\_PE250_60X_$z\-reads.fastq $input2/Wh1_V$i\_PE250_40X_$z\-reads.fastq > $output/D60W40_V$i\_PE250_$z\-reads.fastq
+done
+done
+
+for i in {3,4}
+do
+for z in {1..5}
+do
+echo "i: $i, z: $z"
+cat $input1/Delta_V$i\_PE250_1X_IE_$z\-reads.fastq $input2/Wh1_V$i\_PE250_99X_IE_$z\-reads.fastq > $output/D1W99_V$i\_PE250_IE_$z\-reads.fastq
+cat $input1/Delta_V$i\_PE250_10X_IE_$z\-reads.fastq $input2/Wh1_V$i\_PE250_90X_IE_$z\-reads.fastq > $output/D10W90_V$i\_PE250_IE_$z\-reads.fastq
+cat $input1/Delta_V$i\_PE250_50X_IE_$z\-reads.fastq $input2/Wh1_V$i\_PE250_50X_IE_$z\-reads.fastq > $output/D50W50_V$i\_PE250_IE_$z\-reads.fastq
+cat $input1/Delta_V$i\_PE250_99X_IE_$z\-reads.fastq $input2/Wh1_V$i\_PE250_1X_IE_$z\-reads.fastq > $output/D99W1_V$i\_PE250_IE_$z\-reads.fastq
+cat $input1/Delta_V$i\_PE250_90X_IE_$z\-reads.fastq $input2/Wh1_V$i\_PE250_10X_IE_$z\-reads.fastq > $output/D90W10_V$i\_PE250_IE_$z\-reads.fastq
+cat $input1/Delta_V$i\_PE250_80X_IE_$z\-reads.fastq $input2/Wh1_V$i\_PE250_20X_IE_$z\-reads.fastq > $output/D80W20_V$i\_PE250_IE_$z\-reads.fastq
+cat $input1/Delta_V$i\_PE250_70X_IE_$z\-reads.fastq $input2/Wh1_V$i\_PE250_30X_IE_$z\-reads.fastq > $output/D70W30_V$i\_PE250_IE_$z\-reads.fastq
+cat $input1/Delta_V$i\_PE250_60X_IE_$z\-reads.fastq $input2/Wh1_V$i\_PE250_40X_IE_$z\-reads.fastq > $output/D60W40_V$i\_PE250_IE_$z\-reads.fastq
+done
+done
