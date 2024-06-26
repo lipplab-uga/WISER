@@ -21,7 +21,7 @@ input='/scratch/mandyh/WISER_InSilico/Amplicon/V4_ARTIC_Primers'
 output='/scratch/mandyh/WISER_InSilico/Amplicon/sim_V4_Delta_Illumina_reads'
 final_output='/scratch/mandyh/WISER_InSilico/Amplicon/final_sim_V4_Delta_Illumina_reads'
 
-for i in {1..108}
+for i in {1..99}
 do
 for x in {150,250,300}
 do
